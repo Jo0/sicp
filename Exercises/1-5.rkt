@@ -19,11 +19,11 @@
 ;The predicate expression is evaluated first, and the result determines whether to evaluate the consequent or the alternative expression.)
 
 ;Applicative-Order (evaluate the arguments and then apply)
-;(test 0 (p)) -> (if (= 0 0) -> 0
-;                     0
-;                     p))
+;(test 0 (p)) -> (if (= 0 0) -> (if (= 0 0 ) -> over and over because it will infinitely try to expand p and can never reduce by definition of procedure p
+;                    0              0
+;                    p))            p)) 
 
 ;Normal-Order (fully expand and reduce)
-;(test 0 (p)) -> (if (= 0 0) -> (if (= 0 0) -> over and over because it will infinitely try to expand p and can never reduce by definition of procedure p
-;                     0              0
-;                     p))            p))
+;(test 0 (p)) -> (if (= 0 0) -> 0
+;                     0         
+;                     p))       
